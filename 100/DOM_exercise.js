@@ -31,10 +31,11 @@ p.querySelectorAll(".bg-yellow").forEach((word) => {
   (http://officeipsum.com/)
 */
 
+const body = document.querySelector("body");
 const aTag = document.createElement("a");
 aTag.setAttribute("href", "http://officeipsum.com/");
 aTag.innerText = "officeipsum";
-p.append(aTag);
+body.insertBefore(aTag, p.nextSibling);
 
 /*
   Exercise 03
@@ -44,16 +45,14 @@ p.append(aTag);
 */
 
 const pHTML = p.innerHTML;
-const arr = pHTML.split(".");
-
-const newArr = arr.map((sentence) => {
-  if (sentence.search(".com")) {
+const pSentences = pHTML.split(".");
+const newParaSentences = pSentences.map((sentence) => {
+  if (sentence !== "") {
     return `<p>${sentence}.</p>`;
   }
-  return sentence;
 });
 
-p.innerHTML = newArr.join(" ");
+p.innerHTML = newParaSentences.join(" ");
 
 /* 
   Exercise 04
