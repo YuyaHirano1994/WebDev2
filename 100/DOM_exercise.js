@@ -33,7 +33,7 @@ p.querySelectorAll(".bg-yellow").forEach((word) => {
 
 const body = document.querySelector("body");
 const aTag = document.createElement("a");
-aTag.setAttribute("href", "http://officeipsum.com/");
+aTag.href= "http://officeipsum.com/";
 aTag.innerText = "officeipsum";
 body.insertBefore(aTag, p.nextSibling);
 
