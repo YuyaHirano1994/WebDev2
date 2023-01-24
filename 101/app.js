@@ -9,6 +9,10 @@ const createList = (value) => {
 document.getElementById("add-btn").addEventListener("click", function (e) {
   e.preventDefault();
   const input = document.getElementById("add-input");
-  createList(input.value);
-  input.value = "";
+  if (input.value !== "") {
+    createList(input.value);
+    input.value = "";
+  } else {
+    alert("input Note Title");
+  }
 });
