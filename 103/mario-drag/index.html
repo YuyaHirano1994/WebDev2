@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            height: 200px;
+        }
+        body {
+            margin: 0;
+            touch-action: none;
+        }
+        #sidewalk {
+            background-color: gray;
+            height: 50px;
+            margin: -30px;
+        }
+    </style>
+</head>
+<body>
+    <img src="./mario.gif" alt="" id="avatar">
+    <div id="sidewalk"></div>
+    <script>
+        let dragStart = false;
+        let originX = null;
+        let offSetX = 0;
+
+        function onDragStart(event){
+            originX = event.clientX;
+            dragStart = true;
+            event.currentTarget.setPointerCapture(event.pointerId)
+        }
+        function onDragEnd(event){
+            dragStart = false
+            offSetX += event.clientX - originX
+
+        }
+        function onDragMove(event){
+            if(!dragStart){
+                return;
+            }
+
+            event.preventDefault();
+            // const currentX = event.clientX;
+            // const delta = currentX - originX;
+            // mario.style.transform = `translateX(${delta}px)`
+
+            const deltaX = event.clientX - originX;
+            const translateX = offSetX + deltaX;
+            event.currentTarget.style.transform = `translateX(${translateX}px)`
+        }
+
+        const mario = document.querySelector("#avatar")
+        mario.addEventListener('pointerdown', onDragStart)
+        mario.addEventListener('pointerup', onDragEnd)
+        mario.addEventListener('pointermove', onDragMove)
+    </script>
+</body>
+</html>

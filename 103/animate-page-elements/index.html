@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #frame{
+            border: 1px solid red;
+        }
+
+        #block {
+            width: 20px;
+            height: 40px;
+            background: red;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="frame"></div>
+    <div id="block"></div>
+
+    <script>
+        const moveBlock = () => {
+            const xBlock = parseFloat(getComputedStyle(blockElement).left);
+
+
+            if(xBlock + blockWidth <= maxFrameWidth){
+                blockElement.style.left = (xBlock + movement) + "px"
+                requestAnimationFrame(moveBlock)
+            }else{
+                cancelAnimationFrame(animationId)
+            }
+        }
+
+        const blockElement = document.getElementById("block")
+        const blockWidth = parseFloat(getComputedStyle(block).width)
+        const maxFrameWidth = parseFloat(getComputedStyle(frame).width)
+        const movement = 7
+        const animationId = requestAnimationFrame(moveBlock)
+
+    </script>
+</body>
+</html>
