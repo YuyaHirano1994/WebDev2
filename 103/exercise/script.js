@@ -3,26 +3,26 @@ const images = ["./images/avocado.jpeg", "./images/pancake.jpeg", "./images/sand
 const img = document.querySelector("img");
 const prev = document.querySelector("#prev-button");
 const next = document.querySelector("#next-button");
-let num = 0;
+let index = 0;
 
 window.addEventListener("DOMContentLoaded", () => {
   img.src = images[0];
 });
 
 prev.addEventListener("click", () => {
-  if (num == 0) {
-    num = 3;
+  if (index == 0) {
+    index = 3;
   } else {
-    num--;
+    index--;
   }
-  img.src = images[num];
+  img.src = images[index];
 });
 
 next.addEventListener("click", () => {
-  if (num == 3) {
-    num = 0;
+  if (index == 3) {
+    index = 0;
   } else {
-    num++;
+    index++;
   }
-  img.src = images[num];
+  img.src = images[index];
 });
