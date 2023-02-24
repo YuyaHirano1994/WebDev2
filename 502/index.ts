@@ -14,7 +14,7 @@ const exerciseOne = () => {
   // • Hover over variables to inspect their types.
   // • Fix the error on line 18 by changing the value of pi to the expected type.
 
-  let pi: any = "3.14159";
+  let pi = 3.14159;
   let tau = pi * 2;
 
   console.log("[Exercise 1.1]", `${tau} is ${pi} times two.`);
@@ -55,9 +55,19 @@ const exerciseOne = () => {
   const largestNumber: number = Number.MAX_VALUE;
   const mostBiglyNumber: number = Infinity;
 
-  const members: any[] = [integer, float, hex, binary, octal, negZero, actuallyNumber, largestNumber, mostBiglyNumber];
+  const members: number[] = [
+    integer,
+    float,
+    hex,
+    binary,
+    octal,
+    negZero,
+    actuallyNumber,
+    largestNumber,
+    mostBiglyNumber,
+  ];
 
-  members[0] = "12345";
+  members[0] = 12345;
 
   console.log("[Exercise 1.4]", members);
 
@@ -84,9 +94,9 @@ const exerciseOne = () => {
   const inventoryItem: [string, number] = ["fidget wibbit", 11];
 
   // later we destructure it
-  const [name, qty]: [string, number] = inventoryItem;
+  const [name, qty] = inventoryItem;
 
-  const msg: string = addInventory(name, qty);
+  const msg = addInventory(name, qty);
 
   console.log("[Exercise 1.6]", msg);
 
